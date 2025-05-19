@@ -1,0 +1,25 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5673
+    username: guest
+    password: guest
+  datasource:
+    url: jdbc:mysql://localhost:3306/mydb
+    username: root
+    password: Lg_(098765)
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+logging:
+  level:
+    org.springframework.amqp: DEBUG
+    com.example.persistence: INFO
