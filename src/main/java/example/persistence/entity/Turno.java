@@ -26,5 +26,7 @@ public class Turno {
 
     private String estado; // "PENDIENTE", "COMPLETADO", "CANCELADO"
 
+    private String nombre;
+
     private String observaciones;
 }
