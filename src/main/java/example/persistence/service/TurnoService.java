@@ -35,6 +35,7 @@ public class TurnoService {
         turno.setFechaHora(turnoDto.getFechaHora());
         turno.setEstado(turnoDto.getEstado());
         turno.setObservaciones(turnoDto.getObservaciones());
+        turno.setNombre(turnoDto.getNombre());
 
         Turno turnoGuardado = turnoRepository.save(turno);
 

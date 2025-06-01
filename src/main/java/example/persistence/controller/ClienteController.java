@@ -17,12 +17,12 @@ public class ClienteController {
     private final ClienteService clienteService;
 
     @PostMapping
-    public ResponseEntity<Cliente> crearCliente(@RequestBody ClienteDto clienteDto) {
+    public ResponseEntity<ClienteDto> crearCliente(@RequestBody ClienteDto clienteDto) {
         return ResponseEntity.ok(clienteService.crearCliente(clienteDto));
     }
 
     @GetMapping
-    public ResponseEntity<List<Cliente>> obtenerTodosClientes() {
+    public ResponseEntity<List<ClienteDto>> obtenerTodosClientes() {
         return ResponseEntity.ok(clienteService.obtenerTodosClientes());
     }
 }

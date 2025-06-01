@@ -15,4 +15,5 @@ public class TurnoDto implements Serializable {
     private LocalDateTime fechaHora;
     private String estado;
     private String observaciones;
+    private String nombre;
 }
