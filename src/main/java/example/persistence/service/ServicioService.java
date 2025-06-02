@@ -27,7 +27,18 @@ public class ServicioService {
         return servicioGuardado;
     }
 
-    public List<Servicio> obtenerTodosServicios() {
-        return servicioRepository.findAll();
+
+    public Servicio obtenerServicioPorId(Long id) {
+        return servicioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Servicio no encontrado con ID: " + id));
     }
+
+    public void eliminarServicio(Long id) {
+        Servicio servicio = servicioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Servicio no encontrado con ID: " + id));
+
+        servicioRepository.delete(servicio);
+        messageService.enviarMensaje("Servicio eliminado: " + servicio.getNombre());
+    }
+
 }

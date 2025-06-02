@@ -21,8 +21,16 @@ public class ServicioController {
         return ResponseEntity.ok(servicioService.crearServicio(servicioDto));
     }
 
-    @GetMapping
-    public ResponseEntity<List<Servicio>> obtenerTodosServicios() {
-        return ResponseEntity.ok(servicioService.obtenerTodosServicios());
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Servicio> obtenerServicioPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(servicioService.obtenerServicioPorId(id));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarServicio(@PathVariable Long id) {
+        servicioService.eliminarServicio(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }

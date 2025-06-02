@@ -34,12 +34,21 @@ public class ClienteService {
     }
 
 
-
-    public List<ClienteDto> obtenerTodosClientes() {
-        return clienteRepository.findAll().stream()
+    public ClienteDto obtenerClientePorId(Long id) {
+        return clienteRepository.findById(id)
                 .map(this::convertirADto)
-                .collect(Collectors.toList());
+                .orElseThrow(() -> new RuntimeException("Cliente no encontrado con ID: " + id));
     }
+
+    public void eliminarCliente(Long id) {
+        Cliente cliente = clienteRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Cliente no encontrado con ID: " + id));
+
+        clienteRepository.delete(cliente);
+        messageService.enviarMensaje("Cliente eliminado: " + cliente.getNombre());
+    }
+
+
 
     private ClienteDto convertirADto(Cliente cliente) {
         ClienteDto dto = new ClienteDto();

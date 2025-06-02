@@ -45,9 +45,6 @@ public class TurnoService {
         return turnoGuardado;
     }
 
-    public List<Turno> obtenerTodosTurnos() {
-        return turnoRepository.findAll();
-    }
 
     public Turno obtenerTurnoPorId(Long id) {
         return turnoRepository.findById(id)
@@ -61,24 +58,6 @@ public class TurnoService {
         turnoRepository.deleteById(id);
     }
 
-    public Turno actualizarTurno(Long id, TurnoDto turnoDto) {
-        Turno turnoExistente = turnoRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Turno no encontrado"));
-
-        Cliente cliente = clienteRepository.findById(turnoDto.getClienteId())
-                .orElseThrow(() -> new EntityNotFoundException("Cliente no encontrado"));
-        
-        Servicio servicio = servicioRepository.findById(turnoDto.getServicioId())
-                .orElseThrow(() -> new EntityNotFoundException("Servicio no encontrado"));
-
-        turnoExistente.setCliente(cliente);
-        turnoExistente.setServicio(servicio);
-        turnoExistente.setFechaHora(turnoDto.getFechaHora());
-        turnoExistente.setEstado(turnoDto.getEstado());
-        turnoExistente.setObservaciones(turnoDto.getObservaciones());
-
-        return turnoRepository.save(turnoExistente);
-    }
 
 
 }

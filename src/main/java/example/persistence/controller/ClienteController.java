@@ -21,8 +21,15 @@ public class ClienteController {
         return ResponseEntity.ok(clienteService.crearCliente(clienteDto));
     }
 
-    @GetMapping
-    public ResponseEntity<List<ClienteDto>> obtenerTodosClientes() {
-        return ResponseEntity.ok(clienteService.obtenerTodosClientes());
+    @GetMapping("/{id}")
+    public ResponseEntity<ClienteDto> obtenerClientePorId(@PathVariable Long id) {
+        return ResponseEntity.ok(clienteService.obtenerClientePorId(id));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarCliente(@PathVariable Long id) {
+        clienteService.eliminarCliente(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
