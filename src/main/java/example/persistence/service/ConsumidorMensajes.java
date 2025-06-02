@@ -1,8 +1,8 @@
 package example.persistence.service;
 
-import example.persistence.dto.ClienteDto;
-import example.persistence.dto.ServicioDto;
-import example.persistence.dto.TurnoDto;
+import example.persistence.Dto.ClienteDto;
+import example.persistence.Dto.ServicioDto;
+import example.persistence.Dto.TurnoDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;

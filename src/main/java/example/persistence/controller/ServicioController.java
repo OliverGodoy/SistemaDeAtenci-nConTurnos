@@ -1,6 +1,6 @@
 package example.persistence.controller;
 
-import example.persistence.dto.ServicioDto;
+import example.persistence.Dto.ServicioDto;
 import example.persistence.entity.Servicio;
 import example.persistence.service.ServicioService;
 import lombok.RequiredArgsConstructor;

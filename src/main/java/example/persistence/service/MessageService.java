@@ -1,8 +1,8 @@
 package example.persistence.service;
 
-import example.persistence.dto.ClienteDto;
-import example.persistence.dto.ServicioDto;
-import example.persistence.dto.TurnoDto;
+import example.persistence.Dto.ClienteDto;
+import example.persistence.Dto.ServicioDto;
+import example.persistence.Dto.TurnoDto;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;

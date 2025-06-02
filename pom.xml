@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.5</version>
+        <version>3.2.3</version>
     </parent>
 
     <groupId>umg.progra3</groupId>
@@ -22,12 +22,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.proyectoprogra.covidstats</groupId>
-            <artifactId>covid-api-project</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
         <!-- Starter para RabbitMQ (incluye AMQP) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

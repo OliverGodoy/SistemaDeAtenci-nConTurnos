@@ -1,4 +1,4 @@
-package example.persistence.dto;
+package example.persistence.Dto;
 
 import lombok.Data;
 

@@ -1,11 +1,11 @@
 package example.persistence.controller;
 
-import example.persistence.dto.ClienteDto;
-import example.persistence.entity.Cliente;
+
 import example.persistence.service.ClienteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import example.persistence.Dto.ClienteDto;
 
 import java.util.List;
 

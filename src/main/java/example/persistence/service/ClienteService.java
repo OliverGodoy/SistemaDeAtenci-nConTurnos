@@ -1,11 +1,11 @@
 package example.persistence.service;
 
-import example.persistence.dto.ClienteDto;
-import example.persistence.entity.Cliente;
-import example.persistence.repository.ClienteRepository;
-import jakarta.persistence.EntityNotFoundException;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import example.persistence.Dto.ClienteDto;
+import example.persistence.repository.ClienteRepository;
+import example.persistence.entity.Cliente;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,12 +23,17 @@ public class ClienteService {
         cliente.setDni(clienteDto.getDni());
         cliente.setTelefono(clienteDto.getTelefono());
         cliente.setEmail(clienteDto.getEmail());
-        
+
+        // Guardar el cliente en la base de datos
         Cliente clienteGuardado = clienteRepository.save(cliente);
-        messageService.enviarCliente(clienteDto);
-        
+
+        // Enviar un mensaje de confirmación
+        messageService.enviarMensaje("Cliente creado: " + clienteGuardado.getNombre());
+
         return convertirADto(clienteGuardado);
     }
+
+
 
     public List<ClienteDto> obtenerTodosClientes() {
         return clienteRepository.findAll().stream()
@@ -45,4 +50,6 @@ public class ClienteService {
         dto.setEmail(cliente.getEmail());
         return dto;
     }
+
+
 }

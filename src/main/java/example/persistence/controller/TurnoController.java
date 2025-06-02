@@ -1,6 +1,7 @@
 package example.persistence.controller;
 
-import example.persistence.dto.TurnoDto;
+
+import example.persistence.Dto.TurnoDto;
 import example.persistence.entity.Turno;
 import example.persistence.service.TurnoService;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,8 @@ import java.util.List;
 public class TurnoController {
 
     private final TurnoService turnoService;
+
+
 
     @PostMapping
     public ResponseEntity<Turno> crearTurno(@RequestBody TurnoDto turnoDto) {

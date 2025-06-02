@@ -8,11 +8,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import example.persistence.service.MessageService;
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackages = "example.persistence.repository")
-@EntityScan(basePackages = "example.persistence.entity")
 public class PersistenceApplication {
-
-
     public static void main(String[] args) {
 
         ConfigurableApplicationContext context = SpringApplication.run(PersistenceApplication.class, args);
