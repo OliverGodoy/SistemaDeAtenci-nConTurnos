@@ -12,6 +12,11 @@ spring:
     username: root
     password: Lg_(098765)
     driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: logs
   jpa:
     hibernate:
       ddl-auto: update

@@ -1,10 +1,11 @@
 package example.persistence;
 
+import example.persistence.entity.LogMessage;
+import example.persistence.repository.LogRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.context.ConfigurableApplicationContext;
 import example.persistence.service.MessageService;
 
@@ -14,7 +15,6 @@ import example.persistence.service.MessageService;
 @Slf4j
 public class PersistenceApplication {
     public static void main(String[] args) {
-
         ConfigurableApplicationContext context = SpringApplication.run(PersistenceApplication.class, args);
 
         log.info("====================================");
@@ -22,7 +22,12 @@ public class PersistenceApplication {
         log.info("  Esperando mensajes en colas...   ");
         log.info("====================================");
 
+        // Obtener los beans necesarios del contexto
         MessageService messageService = context.getBean(MessageService.class);
-        messageService.enviarMensaje("¡Conexion exitosa!");
+        LogRepository logRepository = context.getBean(LogRepository.class);
+
+        // Enviar mensaje y guardar log
+        messageService.enviarMensaje("¡Conexión exitosa!");
+        logRepository.save(new LogMessage("¡Conexión exitosa!", "INICIO", "El consumidor RabbitMQ ha iniciado correctamente."));
     }
 }
